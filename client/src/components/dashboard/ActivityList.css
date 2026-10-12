@@ -1,0 +1,6 @@
+.activity { display: grid; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
+.activity li { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: var(--space-3); padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border); font-size: 0.92rem; }
+.activity li:last-child { border-bottom: 0; padding-bottom: 0; }
+.activity__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-accent); }
+.activity time { color: var(--color-muted); font-size: 0.8rem; white-space: nowrap; }
+@media (max-width: 520px) { .activity li { grid-template-columns: auto 1fr; } .activity time { grid-column: 2; } }

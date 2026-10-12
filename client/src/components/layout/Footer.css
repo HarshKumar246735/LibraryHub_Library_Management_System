@@ -1,0 +1,10 @@
+.site-footer { margin-top: var(--space-8); padding: var(--space-8) 0 var(--space-4); background: var(--color-navy); color: #cbd5e1; }
+.site-footer__grid { display: grid; grid-template-columns: 2fr 1fr 1.4fr; gap: var(--space-8); }
+.site-footer h4 { margin: 0 0 var(--space-3); color: #fff; }
+.site-footer nav, .site-footer address { display: grid; gap: var(--space-2); font-style: normal; align-content: start; }
+.site-footer a { color: #cbd5e1; }
+.site-footer a:hover { color: #fff; }
+.site-footer address p { margin: 0; display: flex; align-items: center; gap: var(--space-2); }
+.site-footer__tagline { margin-top: var(--space-3); max-width: 28ch; }
+.site-footer__copy { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 1px solid rgb(255 255 255 / 12%); font-size: 0.85rem; }
+@media (max-width: 720px) { .site-footer__grid { grid-template-columns: 1fr; gap: var(--space-6); } }

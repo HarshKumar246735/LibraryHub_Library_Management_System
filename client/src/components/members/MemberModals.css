@@ -1,0 +1,8 @@
+.member-name { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; margin-bottom: var(--space-4); }
+.member-meta { display: grid; grid-template-columns: max-content 1fr; gap: var(--space-2) var(--space-6); margin: 0 0 var(--space-4); }
+.member-meta dt { color: var(--color-muted); }
+.member-meta dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+.member-actions { display: grid; gap: var(--space-3); padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
+.member-role { display: flex; gap: var(--space-2); flex-wrap: wrap; }
+.member-select { min-height: 44px; padding: 0 var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-control); background: var(--color-surface); }
+.member-skeleton { display: grid; gap: var(--space-3); }

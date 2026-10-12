@@ -1,0 +1,7 @@
+.issue-form { margin-bottom: var(--space-6); padding: var(--space-6); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); }
+.issue-form h2 { font-size: 1.1rem; margin-bottom: var(--space-4); }
+.issue-form__grid { display: grid; grid-template-columns: 1fr 1fr auto; gap: var(--space-4); align-items: end; }
+.tab { min-height: 40px; padding: 0 var(--space-4); border: 1px solid var(--color-border); border-radius: 999px; background: var(--color-surface); cursor: pointer; font-weight: 600; color: var(--color-muted); }
+.tab.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+.row-actions { display: inline-flex; gap: var(--space-2); }
+@media (max-width: 860px) { .issue-form__grid { grid-template-columns: 1fr; } }

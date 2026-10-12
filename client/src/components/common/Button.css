@@ -1,0 +1,7 @@
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 44px; padding: 0 var(--space-4); border-radius: var(--radius-control); border: 1px solid transparent; font-weight: 600; cursor: pointer; transition: transform var(--transition), box-shadow var(--transition), background var(--transition); }
+.btn:hover:not(:disabled) { transform: translateY(-1px); }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.btn--primary { background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark)); color: #fff; box-shadow: 0 6px 16px rgb(79 70 229 / 28%); }
+.btn--secondary { background: var(--color-surface); border-color: var(--color-border); color: var(--color-text); }
+.btn--danger { background: var(--color-danger); color: #fff; }
+.btn, .btn:hover { text-decoration: none; }

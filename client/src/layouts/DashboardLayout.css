@@ -1,0 +1,4 @@
+.shell { min-height: 100vh; }
+.shell__main { margin-left: 256px; min-width: 0; }
+.shell__content { padding: var(--space-6); max-width: 1280px; }
+@media (max-width: 960px) { .shell__main { margin-left: 0; } .shell__content { padding: var(--space-4); } }

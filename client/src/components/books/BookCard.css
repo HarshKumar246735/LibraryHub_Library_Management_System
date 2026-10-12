@@ -1,0 +1,12 @@
+.book-card { display: flex; flex-direction: column; gap: var(--space-3); padding: var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-card); box-shadow: var(--shadow-card); transition: transform var(--transition), box-shadow var(--transition); }
+.book-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgb(15 23 42 / 14%); }
+.book-card__cover { display: block; }
+.book-card__body { display: grid; gap: var(--space-2); align-content: start; flex: 1; justify-items: start; }
+.book-card__title { margin: 0; font-size: 1rem; }
+.book-card__title a { color: var(--color-text); }
+.book-card__author { margin: 0; color: var(--color-muted); font-size: 0.9rem; }
+.book-card__footer { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); width: 100%; margin-top: auto; flex-wrap: wrap; }
+.book-card__link { font-size: 0.875rem; font-weight: 600; }
+.book-card--list { flex-direction: row; align-items: flex-start; }
+.book-card--list .book-card__cover { width: 96px; flex-shrink: 0; }
+@media (prefers-reduced-motion: reduce) { .book-card, .book-card:hover { transition: none; transform: none; } }

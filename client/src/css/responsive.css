@@ -1,0 +1,4 @@
+/* Shared helpers; page-level breakpoints live in each page's own CSS. */
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 var(--space-4); }
+.table-scroll { overflow-x: auto; max-width: 100%; }
+@media (max-width: 640px) { .container { padding: 0 var(--space-3); } }

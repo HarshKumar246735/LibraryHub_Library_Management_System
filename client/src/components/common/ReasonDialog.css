@@ -1,0 +1,4 @@
+.reason-dialog__message { margin: 0 0 var(--space-4); }
+.reason-dialog__label { display: block; margin-bottom: 6px; font-size: 0.875rem; font-weight: 600; }
+.reason-dialog__input { width: 100%; padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-control); resize: vertical; }
+.reason-dialog__input:focus { border-color: var(--color-primary); outline: none; box-shadow: 0 0 0 3px rgb(79 70 229 / 18%); }

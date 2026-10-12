@@ -1,0 +1,24 @@
+# Optional Render Blueprint for the API. Secrets (sync: false) are entered in the Render dashboard.
+services:
+  - type: web
+    name: libraryhub-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        sync: false
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: COOKIE_SAME_SITE
+        value: none
+      - key: ENABLE_JOBS
+        value: "true"

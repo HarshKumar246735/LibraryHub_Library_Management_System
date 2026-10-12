@@ -1,0 +1,18 @@
+.books-page { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.books-page__header h1 { margin-bottom: var(--space-1); color: var(--color-navy); }
+.books-page__header p { margin: 0 0 var(--space-6); color: var(--color-muted); }
+.books-toolbar { display: grid; grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(130px, 1fr)) auto; gap: var(--space-3); align-items: center; margin-bottom: var(--space-6); }
+.books-toolbar select, .books-toolbar__search { min-height: 44px; border: 1px solid var(--color-border); border-radius: var(--radius-control); background: var(--color-surface); }
+.books-toolbar select { padding: 0 var(--space-3); min-width: 0; }
+.books-toolbar__search { display: flex; align-items: center; gap: var(--space-2); padding: 0 var(--space-3); color: var(--color-muted); }
+.books-toolbar__search:focus-within { border-color: var(--color-primary); box-shadow: 0 0 0 3px rgb(79 70 229 / 18%); }
+.books-toolbar__search input { flex: 1; min-width: 0; border: 0; outline: none; background: transparent; }
+.books-toolbar__view { display: flex; border: 1px solid var(--color-border); border-radius: var(--radius-control); overflow: hidden; background: var(--color-surface); }
+.books-toolbar__view button { min-width: 44px; min-height: 44px; border: 0; background: transparent; cursor: pointer; color: var(--color-muted); }
+.books-toolbar__view button.is-active { background: var(--color-primary); color: #fff; }
+.books-page__count { margin: 0 0 var(--space-3); color: var(--color-muted); font-size: 0.9rem; }
+.books-results--grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); }
+.books-results--list { display: grid; gap: var(--space-3); }
+@media (max-width: 1024px) { .books-results--grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } .books-toolbar { grid-template-columns: 1fr 1fr 1fr; } .books-toolbar__search { grid-column: 1 / -1; } .books-toolbar__view { justify-self: end; } }
+@media (max-width: 720px) { .books-results--grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .books-toolbar { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .books-results--grid { grid-template-columns: 1fr; } .books-toolbar { grid-template-columns: 1fr; } .books-toolbar__view { justify-self: stretch; } .books-toolbar__view button { flex: 1; } }
