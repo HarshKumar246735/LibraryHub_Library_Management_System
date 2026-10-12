@@ -1,4 +1,5 @@
 # LibraryHub — Smart Library Management System
+LIVE DEOMO - https://library-hub-library-management-syst.vercel.app
 <img width="1911" height="922" alt="image" src="https://github.com/user-attachments/assets/443d9048-2c61-4965-baf3-f9672b5ce20c" />
 
 > **Your Library, Smarter and Simpler.**
