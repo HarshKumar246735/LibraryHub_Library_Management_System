@@ -1,20 +1,43 @@
 # LibraryHub — Smart Library Management System
+<img width="1911" height="922" alt="image" src="https://github.com/user-attachments/assets/443d9048-2c61-4965-baf3-f9672b5ce20c" />
 
 > **Your Library, Smarter and Simpler.**
 
 LibraryHub is a full-stack library management platform (React + Express + MongoDB) with role-based access for **administrators, librarians and students**. It covers the catalogue, borrow requests, issue and return, renewals, fines, notifications, dashboards and reports.
 
+<img width="1916" height="915" alt="image" src="https://github.com/user-attachments/assets/685f2720-a640-4083-aaa1-fd967d778d00" />
+
+
 ## Contents
-1. [Problem statement](#problem-statement) · 2. [Features](#features) · 3. [Roles](#user-roles) · 4. [Tech stack](#technology-stack) · 5. [Architecture](#architecture) · 6. [Folder structure](#folder-structure) · 7. [Local setup](#local-setup) · 8. [Environment variables](#environment-variables) · 9. [Database, seed and first admin](#database-seed-and-first-admin) · 10. [Running](#running-the-app) · 11. [API](#api-reference) · 12. [Testing](#testing) · 13. [Deployment](#deployment) · 14. [Security](#security-considerations) · 15. [Troubleshooting](#troubleshooting) · 16. [Known limitations](#known-limitations) · 17. [Future work](#future-enhancements) · 18. [Screenshots](#screenshots) · 19. [License](#license)
+1. [Problem statement](#problem-statement) · 2. [Features](#features) · 3. [Roles](#user-roles) · 4. [Tech stack](#technology-stack) · 5. [Architecture](#architecture) · 6. [Folder structure](#folder-structure) · 7. [Local setup](#local-setup) · 8. [Environment variables](#environment-variables) · 9. [Database, seed and first admin](#database-seed-and-first-admin) · 10. [Running](#running-the-app) · 11. [API](#api-reference) · 13. [Deployment](#deployment) · 14. [Security](#security-considerations) · 15. [Troubleshooting](#troubleshooting) · 16. [Known limitations](#known-limitations) · 17. [Future work](#future-enhancements) · 18. [Screenshots](#screenshots) 
 
 ## Problem statement
 Schools, colleges and small libraries often run on paper registers or spreadsheets, which makes inventory, due dates and fines error-prone. LibraryHub keeps one consistent record of books, loans and fines, and lets students self-serve while staff approve and process transactions.
 
+<img width="1917" height="915" alt="image" src="https://github.com/user-attachments/assets/1ed14b1b-720b-40c2-9039-d4832c4efdfa" />
+
+
 ## Features
 - **Public site:** landing page with real featured books and live statistics (never fabricated), searchable catalogue (search, category/availability filters, sorting, pagination, grid/list), book details.
+
+<img width="1917" height="913" alt="image" src="https://github.com/user-attachments/assets/f7c43f07-97f2-4be6-89f1-01e457f9cd0c" />
+
+
+  
 - **Auth:** student registration, login/logout, session restore, change password, forgot/reset password, deactivated-account checks, rate limiting.
+
+<img width="1915" height="922" alt="image" src="https://github.com/user-attachments/assets/9aa63333-b2a8-40ab-a0ec-f4ef56e3d16b" />
+
 - **Students:** request books, cancel pending requests, view loans/history/fines, request renewals, notifications, profile.
+
+<img width="1917" height="913" alt="image" src="https://github.com/user-attachments/assets/8488de3b-b7e6-4425-bd34-73b6425fda9f" />
+
+
 - **Librarians/Admins:** approve or reject requests, issue books directly, process returns, review renewals, manage books (add/edit/remove), look up members, record fine payments, reports with CSV export.
+
+<img width="1913" height="920" alt="image" src="https://github.com/user-attachments/assets/b66c1e18-15cc-4133-ad34-e3e28ff127b6" />
+
+
 - **Admins only:** create staff accounts, change roles, activate/deactivate accounts, waive fines, admin dashboard with charts.
 - **Business rules (server-side):** borrowing limit, no duplicate loans, overdue block, optional unpaid-fine block, fines computed from stored policy (rate, grace days, max fine), atomic inventory updates, audit log.
 - **UX:** responsive layout with collapsible sidebar, skeleton loaders, empty/error states, toasts, confirmation dialogs, 404 and 403 pages.
@@ -185,14 +208,6 @@ The auth cookie is HttpOnly. A frontend on `*.vercel.app` and an API on `*.onren
 ### Free-tier notes
 Free Render services sleep when idle, so the first request can take around a minute (cold start). The in-process job only runs while the service is awake; for dependable reminders use a scheduler that runs `npm run job:due-dates` (e.g. a Render Cron Job). Hosting terms change — check current limits.
 
-### Production checklist
-- [ ] Strong `JWT_SECRET`, real `MONGODB_URI` (not localhost)
-- [ ] `COOKIE_SECURE=true`, cookie strategy chosen and tested
-- [ ] `CLIENT_URL` equals the exact deployed frontend origin (no trailing slash)
-- [ ] `VITE_API_URL` correct and frontend redeployed
-- [ ] Admin created; seed **not** run
-- [ ] `/api/health` reports connected; deep links work on refresh
-- [ ] No `.env` committed
 
 ## Security considerations
 bcrypt password hashing · HttpOnly cookie sessions · CORS allow-list with credentials (no wildcard) · CSRF defence via required custom header · Helmet · rate limiting (global and stricter on auth routes) · Zod validation with strict schemas (unknown fields such as `role` rejected) · escaped search patterns · ownership enforced from the session, never from client-sent IDs · generic login errors · hashed single-use reset tokens · audit log · no secrets in responses or logs.
@@ -200,7 +215,7 @@ bcrypt password hashing · HttpOnly cookie sessions · CORS allow-list with cred
 ## Troubleshooting
 | Symptom | Fix |
 |---|---|
-| Server exits: "Missing required environment variables" | Create `server/.env` from the example |
+| Server exits: "Missing required environment variables
 | Login works but `/me` returns 401 on the deployed site | Third-party cookie blocked — use the proxy or custom-domain option |
 | CORS error | `CLIENT_URL` must exactly match the browser origin |
 | 403 "Missing required request header" | Requests must send `X-Requested-With: LibraryHub` (the bundled client does) |
@@ -213,16 +228,20 @@ bcrypt password hashing · HttpOnly cookie sessions · CORS allow-list with cred
 - No email delivery; reset links only appear in the development console. No push notifications.
 - No settings screen: library policy lives in the `LibrarySettings` document.
 - Renewal does not check reservations (reservations are not implemented). No lost-book workflow, wishlist, QR/barcode, dark mode or multi-branch support.
-- Payments are recorded manually and in full (no gateway, no partial payments). Fines are generated at return time; an overdue book that is not yet returned has no fine record until it is returned.
-- The audit log has no viewer screen (entries appear in "Recent activity").
-- CSV export only; no PDF.
+- Payments are recorded manually and in full. Fines are generated at return time; an overdue book that is not yet returned has no fine record until it is returned.
+- The audit log has no viewer screen.
 - Notifications are polled every minute, not pushed.
 
 ## Future enhancements
 Settings screen, email provider, reservations, audit-log viewer, dark mode, barcode scanning, PDF receipts, multi-branch.
 
 ## Screenshots
-_None included. After running the app locally, add your own screenshots here (e.g. `docs/landing.png`)._
+<img width="1912" height="915" alt="image" src="https://github.com/user-attachments/assets/ddc320bc-2b33-4b4d-8958-6c4c12ad648f" />
+<img width="1917" height="910" alt="image" src="https://github.com/user-attachments/assets/7546c5ef-72fc-481b-b55b-8d59955c6cc1" />
+<img width="1912" height="926" alt="image" src="https://github.com/user-attachments/assets/1e1be2f1-9170-4950-8dfa-a860de344d50" />
+<img width="1917" height="910" alt="image" src="https://github.com/user-attachments/assets/def6eb76-7ecc-473f-9ce6-dd45867208c0" />
+<img width="1910" height="917" alt="image" src="https://github.com/user-attachments/assets/d9cef1a9-37a3-43bd-aa3b-8d6cf1362ddb" />
+<img width="1912" height="921" alt="image" src="https://github.com/user-attachments/assets/b831b1cf-5e54-41a0-bb3e-a63cd7e8250f" />
 
-## License
-Choose a license before publishing (MIT is common for portfolio projects) and add a `LICENSE` file.
+
+
